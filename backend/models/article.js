@@ -3,15 +3,24 @@ var articleSchema = new mongoose.Schema({
   name:{
     type:String,
     required:true,
+    unique: true,
     minlength: [3, 'Must be at least 3 characters.']
+  },
+  description:{
+    type:String,
   },
   image:{
     type:String,
     required:true
   },
   prix:{
-    type:String,
+    type:Number,
     required:true
+  },
+  categorie: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Categorie',
+    required: true
   },
   createdAt: {
     type:Date, 

@@ -3,7 +3,8 @@ var categorieSchema = new mongoose.Schema({
   name:{
     type:String,
     required:true,
-    minlength: [3, 'Must be at least 3 characters.']
+    unique: true,
+    minlength: 3
   },
   createdAt: {
     type:Date, 

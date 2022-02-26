@@ -22,7 +22,11 @@ var userSchema = new mongoose.Schema({
     type:String,
     trim: true,
     required:true,
-    minlength: [6, 'Must be at least 3 characters.']
+    minlength: 6
+  },
+  isAdmin: {
+    type: Boolean,
+    default: false
   },
   createdAt: {
     type:Date, 
