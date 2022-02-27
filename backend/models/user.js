@@ -1,8 +1,11 @@
 const mongoose = require("mongoose"),
-  passportLocalMongoose = require("passport-local-mongoose");
+passportLocalMongoose = require("passport-local-mongoose");
+
+const validator = require('validator')
+
 var userSchema = new mongoose.Schema({
   name:{
-    type:String,
+    type: String,
     required:true
   },
   username:{
@@ -12,17 +15,17 @@ var userSchema = new mongoose.Schema({
   },
   email:{
     type:String,
-    trim: true,
     required:true,
+    trim: true,
     unique: true,
-    lowercase: true,
-    match: [/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/, "Please enter valid email address"]
+    validate(value) {
+      if (!validator.isEmail(value)) {
+        throw new Error('Email is invalid');
+      }
+    }
   },
   password:{
     type:String,
-    trim: true,
-    required:true,
-    minlength: 6
   },
   isAdmin: {
     type: Boolean,
