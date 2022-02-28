@@ -1,5 +1,3 @@
-const express = require("express"),
-
 User = require("../models/user"),
 Article = require("../models/article");
 Categorie = require("../models/categorie");
@@ -29,9 +27,9 @@ const getCategorieById = async (req, res) => {
 };
 
 const addCategorie = async (req, res) => {
+  const newCategorie = new Categorie(req.body);
   try {
-      const categorie = new Categorie(req.body);
-      await Categorie.save();
+      const categorie = await newCategorie.save();
       res.json({
         categorie: categorie,
       });

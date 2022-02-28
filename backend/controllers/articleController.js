@@ -29,18 +29,12 @@ const getArticleById = async (req, res) => {
 };
 
 const addArticle = async (req, res) => {
+  const newArticle = new Article(req.body);
   try {
-      const categorie = await Categorie.findOne({ _id: req.body.categorie });
-      if (!categorie) {
-        res.send({ message: "Categorie not found" });
-      }
-      else{
-        const article = new Article(req.body);
-        await article.save();
-        res.json({
-          article: article,
-        });
-      }
+      const article = await newArticle.save();
+      res.json({
+        article: article,
+      });
   } 
   catch (error) {
     res.send("Error")
