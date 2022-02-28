@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
+require("dotenv").config({path: '.env'});
 
 const dbconnexion = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URL, 
-            { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+        await mongoose.connect(process.env.MONGO_URL, () => 
             { console.log('Successfully connected to mongodb'); }
-        );
+        ); 
     } 
     catch (error) {
         console.log(error);
@@ -16,3 +16,6 @@ const dbconnexion = async () => {
 module.exports = {
     dbconnexion
 }
+
+
+

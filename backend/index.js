@@ -3,7 +3,7 @@ const express = require("express"),
 app = express(),
 
 session = require("express-session"),
-dbConfig = require("./config/dbConfig")
+dbConfig = require("./config/dbConfig"),
 auth = require('./middleware/auth.js')(),
 mongoose = require("mongoose"),
 passport = require("passport"),
