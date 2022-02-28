@@ -1,12 +1,17 @@
 const mongoose = require("mongoose");
-var venteDetailSchema = new mongoose.Schema({
-    quantity: {
+var commandeSchema = new mongoose.Schema({
+    total: {
         type: Number,
         required: true
     },
-    article: {
+    user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Article',
+        ref: 'User',
+        required: true
+    },
+    commandeDetail: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'CommandeDetail',
         required: true
     },
     createdAt: {
@@ -19,4 +24,4 @@ var venteDetailSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("VenteDetail", venteDetailSchema);
+module.exports = mongoose.model("commande", commandeSchema);

@@ -54,9 +54,7 @@ const updateCategorie = async (req, res) => {
 const deleteCategorie = async (req, res) => {
   try {
       const categorie = await Categorie.findByIdAndDelete(req.params.id);
-      res.json({
-        categorie: categorie,
-      });
+      res.send({ message: "Successful" });
   } 
   catch (error) {
     res.send("Error")

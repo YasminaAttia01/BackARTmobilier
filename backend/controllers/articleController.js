@@ -18,7 +18,7 @@ const getAllArticles = async (req, res) => {
 
 const getArticleById = async (req, res) => {
   try {
-      const article = await Article.findById(req.params.id).populate('category');
+      const article = await Article.findById(req.params.id).populate('categorie');
       res.json({
         article: article,
       });
@@ -56,9 +56,7 @@ const updateArticle = async (req, res) => {
 const deleteArticle = async (req, res) => {
   try {
       const article = await Article.findByIdAndDelete(req.params.id);
-      res.json({
-        article: article,
-      });
+      res.send({ message: "Successful" });
   } 
   catch (error) {
     res.send("Error")
