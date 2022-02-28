@@ -42,4 +42,5 @@ router.put("/categorie/modifier/:id", auth.authenticate(), categorieController.u
 /* Supprimer une categorie */
 router.delete("/categorie/supprimer/:id", auth.authenticate(), categorieController.deleteCategorie);
 
+
 module.exports = router;
