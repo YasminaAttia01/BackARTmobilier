@@ -1,3 +1,5 @@
+const express = require("express"),
+
 User = require("../models/user"),
 Article = require("../models/article");
 Categorie = require("../models/categorie");
@@ -35,7 +37,7 @@ const addCategorie = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send(error.message)
   }
 }
 

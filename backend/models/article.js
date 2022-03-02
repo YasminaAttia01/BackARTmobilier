@@ -11,16 +11,16 @@ var articleSchema = new mongoose.Schema({
   },
   image:{
     type:String,
-    required:true
+    required: [true, 'Le nom de l\'article est obligatoire'],
   },
   prix:{
     type:Number,
-    required:true
+    required: [true, 'Le prix de l\'article est obligatoire'],
   },
   categorie: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categorie',
-    required: true
+    required: [true, 'L\'Id de l\'article est obligatoire'],
   },
   createdAt: {
     type:Date, 

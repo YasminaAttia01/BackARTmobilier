@@ -10,10 +10,16 @@ const register = (req, res) => {
       req.body.password,
       function (err, msg) {
         if (err) {
-          res.send({ message: "Error register" });
+          res.send({ 
+            status: "Error",
+            message: "Error register" 
+          });
         } 
         else {
-          res.send({ message: "Successful register" });
+          res.send({
+            status: "Success",
+            message: "Successful register" 
+          });
         }
       }
     );
@@ -22,7 +28,10 @@ const register = (req, res) => {
 const login = (req, res) => {
   User.findOne({ username: req.body.username }, (err, user) => {
       if (err) {
-        console.log("Error Happened In auth /token Route");
+        res.send({ 
+          status: "Error",
+          message: "Error Happened In auth /token Route" 
+        });
       } 
       else {
         var payload = {
@@ -30,8 +39,11 @@ const login = (req, res) => {
           expire: Date.now() + 1000 * 60 * 60 * 24 * 7, //7 days
         };
         var token = jwt.encode(payload, authConfig.jwtSecret);
-        res.json({
-          token: token,
+        res.send({ 
+          status: "Success",
+          message: {
+            token: token,
+          }
         });
       }
     });
@@ -39,7 +51,10 @@ const login = (req, res) => {
 
 const logout = (req, res) => {
   req.logout();
-  res.send({ message: "Successful" });
+  res.send({ 
+    status: "Success",
+    message: "Successful logout"
+  });
 };
 
 module.exports = {

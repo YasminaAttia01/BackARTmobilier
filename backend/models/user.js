@@ -6,21 +6,21 @@ const validator = require('validator')
 var userSchema = new mongoose.Schema({
   name:{
     type: String,
-    required:true
+    required: [true, 'Le nom est obligatoire'],
   },
   username:{
     type:String,
-    required:true,
-    unique: true,
+    required: [true, 'Le username est obligatoire'],
+    unique: [true, 'Le username est unique'],
   },
   email:{
     type:String,
-    required:true,
+    required: [true, 'L\'email est obligatoire'],
     trim: true,
-    unique: true,
+    unique: [true, 'L\'email est unique'],
     validate(value) {
       if (!validator.isEmail(value)) {
-        throw new Error('Email is invalid');
+        throw new Error('L\'email est invalide');
       }
     }
   },

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const articleController = require("../controllers/articleController");
 const categorieController = require("../controllers/categorieController");
-const auth = require("../middleware/auth")();
 
 /* Afficher tous les articles */
 router.get("/articles", auth.authenticate(), articleController.getAllArticles);
