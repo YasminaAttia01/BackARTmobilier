@@ -36,23 +36,25 @@ const getUserById = async (req, res) => {
   }
 };
 
-const addUser = async (req, res) => {
-  const newuser = new User(req.body);
-  try {
-      const user = await newUser.save();
-      res.json({ 
-        status: "Success",
-        message: {
-          user: user,
-        }
-      });
-  } 
-  catch (error) {
-    res.send({ 
-      status: "Error",
-      message: error.message
-    });
-  }
+const addUser = (req, res) => {
+  User.register(
+    new User({ name: req.body.name, username: req.body.username, email: req.body.email }),
+    req.body.password,
+    function (err, msg) {
+      if (err) {
+        res.json({ 
+          status: "Error",
+          message: "Error register" 
+        });
+      } 
+      else {
+        res.json({
+          status: "Success",
+          message: "Successful register" 
+        });
+      }
+    }
+  );
 }
 
 const updateUser = async (req, res) => {
