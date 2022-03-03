@@ -10,13 +10,13 @@ const register = (req, res) => {
       req.body.password,
       function (err, msg) {
         if (err) {
-          res.send({ 
+          res.json({ 
             status: "Error",
             message: "Error register" 
           });
         } 
         else {
-          res.send({
+          res.json({
             status: "Success",
             message: "Successful register" 
           });
@@ -28,7 +28,7 @@ const register = (req, res) => {
 const login = (req, res) => {
   User.findOne({ username: req.body.username }, (err, user) => {
       if (err) {
-        res.send({ 
+        res.json({ 
           status: "Error",
           message: "Error Happened In auth /token Route" 
         });
@@ -39,7 +39,7 @@ const login = (req, res) => {
           expire: Date.now() + 1000 * 60 * 60 * 24 * 7, //7 days
         };
         var token = jwt.encode(payload, authConfig.jwtSecret);
-        res.send({ 
+        res.json({ 
           status: "Success",
           message: {
             token: token,
@@ -51,7 +51,7 @@ const login = (req, res) => {
 
 const logout = (req, res) => {
   req.logout();
-  res.send({ 
+  res.json({ 
     status: "Success",
     message: "Successful logout"
   });

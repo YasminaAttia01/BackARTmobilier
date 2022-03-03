@@ -7,12 +7,15 @@ Categorie = require("../models/categorie");
 const getAllCategories = async (req, res) => {
   try {
     const categories = await Categorie.find();
-    res.json({
-      categories: categories,
+    res.json({ 
+      status: "Success",
+      message: {
+        categories: categories,
+      }
     });
   } 
   catch (error) {
-    res.send({ 
+    res.json({ 
       status: "Error",
       message: error.message
     });
@@ -22,12 +25,15 @@ const getAllCategories = async (req, res) => {
 const getCategorieById = async (req, res) => {
   try {
       const categorie = await Categorie.findById(req.params.id);
-      res.json({
-        categorie: categorie,
+      res.json({ 
+        status: "Success",
+        message: {
+          categorie: categorie,
+        }
       });
   } 
   catch (error) {
-    res.send({ 
+    res.json({ 
       status: "Error",
       message: error.message
     });
@@ -38,24 +44,33 @@ const addCategorie = async (req, res) => {
   const newCategorie = new Categorie(req.body);
   try {
       const categorie = await newCategorie.save();
-      res.json({
-        categorie: categorie,
+      res.json({ 
+        status: "Success",
+        message: {
+          categorie: categorie,
+        }
       });
   } 
   catch (error) {
-    res.send(error.message)
+    res.json({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
 const updateCategorie = async (req, res) => {
   try {
       const categorie = await Categorie.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      res.json({
-        categorie: categorie,
+      res.json({ 
+        status: "Success",
+        message: {
+          categorie: categorie,
+        }
       });
   } 
   catch (error) {
-    res.send({ 
+    res.json({ 
       status: "Error",
       message: error.message
     });
@@ -65,10 +80,13 @@ const updateCategorie = async (req, res) => {
 const deleteCategorie = async (req, res) => {
   try {
       const categorie = await Categorie.findByIdAndDelete(req.params.id);
-      res.send({ message: "Successful" });
+      res.json({ 
+        status: "Success",
+        message: "Successful delete category"
+      });
   } 
   catch (error) {
-    res.send({ 
+    res.json({ 
       status: "Error",
       message: error.message
     });
@@ -78,12 +96,15 @@ const deleteCategorie = async (req, res) => {
 const countCategories = async (req, res) => {
   try {
       const count = await Categorie.countDocuments();
-      res.json({
-        count: count,
+      res.json({ 
+        status: "Success",
+        message: {
+          count: count,
+        }
       });
   } 
   catch (error) {
-    res.send({ 
+    res.json({ 
       status: "Error",
       message: error.message
     });

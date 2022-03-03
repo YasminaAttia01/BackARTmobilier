@@ -3,8 +3,11 @@ User = require("../models/user");
 const getAllUsers = async (req, res) => {
   try {
     const users = await User.find();
-    res.json({
-      users: users,
+    res.json({ 
+      status: "Success",
+      message: {
+        users: users,
+      }
     });
   } 
   catch (error) {
@@ -18,8 +21,11 @@ const getAllUsers = async (req, res) => {
 const getUserById = async (req, res) => {
   try {
       const user = await User.findById(req.params.id);
-      res.json({
-        user: user,
+      res.json({ 
+        status: "Success",
+        message: {
+          user: user,
+        }
       });
   } 
   catch (error) {
@@ -34,8 +40,11 @@ const addUser = async (req, res) => {
   const newuser = new User(req.body);
   try {
       const user = await newUser.save();
-      res.json({
-        user: user,
+      res.json({ 
+        status: "Success",
+        message: {
+          user: user,
+        }
       });
   } 
   catch (error) {
@@ -49,8 +58,11 @@ const addUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
       const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      res.json({
-        user: user,
+      res.json({ 
+        status: "Success",
+        message: {
+          user: user,
+        }
       });
   } 
   catch (error) {
@@ -64,7 +76,10 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
       const user = await user.findByIdAndDelete(req.params.id);
-      res.send({ message: "Successful" });
+      res.json({ 
+        status: "Success",
+        message: "Successful delete user"
+      });
   } 
   catch (error) {
     res.send({ 

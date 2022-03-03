@@ -6,8 +6,11 @@ Commande = require("../models/commande");
 const getAllCommandes = async (req, res) => {
   try {
     const commandes = await Commande.find().populate('commandeDetail').populate('user');
-    res.json({
-      commandes: commandes,
+    res.json({ 
+      status: "Success",
+      message: {
+        commandes: commandes,
+      }
     });
   } 
   catch (error) {
@@ -21,8 +24,11 @@ const getAllCommandes = async (req, res) => {
 const getCommandeById = async (req, res) => {
   try {
       const commande = await Commande.findById(req.params.id).populate('commandeDetail').populate('user');
-      res.json({
-        commande: commande,
+      res.json({ 
+        status: "Success",
+        message: {
+          commande: commande,
+        }
       });
   } 
   catch (error) {
@@ -37,8 +43,11 @@ const addCommande = async (req, res) => {
   const newCommande = new Commande(req.body);
   try {
       const commande = await newCommande.save();
-      res.json({
-        commande: commande,
+      res.json({ 
+        status: "Success",
+        message: {
+          commande: commande,
+        }
       });
   } 
   catch (error) {
@@ -52,8 +61,11 @@ const addCommande = async (req, res) => {
 const updateCommande = async (req, res) => {
   try {
       const commande = await Commande.findByIdAndUpdate(req.params.id, req.body, { new: true });
-      res.json({
-        commande: commande,
+      res.json({ 
+        status: "Success",
+        message: {
+          commande: commande,
+        }
       });
   } 
   catch (error) {
@@ -68,21 +80,34 @@ const deleteCommande = async (req, res) => {
   try {
       const commande = await Commande.findByIdAndDelete(req.params.id);
       res.send({ message: "Successful" });
+      res.json({ 
+        status: "Success",
+        message: "Successful delete commande"
+      });
   } 
   catch (error) {
-    res.send("Error")
+    res.json({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
 const countCommandes = async (req, res) => {
   try {
       const count = await Commande.countDocuments();
-      res.json({
-        count: count,
+      res.json({ 
+        status: "Success",
+        message: {
+          count: count,
+        }
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.json({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
