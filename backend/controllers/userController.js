@@ -38,7 +38,7 @@ const getUserById = async (req, res) => {
 
 const addUser = (req, res) => {
   User.register(
-    new User({ name: req.body.name, username: req.body.username, email: req.body.email }),
+    new User({ name: req.body.name, username: req.body.username, email: req.body.email, isAdmin: req.body.isAdmin }),
     req.body.password,
     function (err, msg) {
       if (err) {
@@ -50,7 +50,7 @@ const addUser = (req, res) => {
       else {
         res.json({
           status: "Success",
-          message: "Successful register" 
+          message: "Successful register user" 
         });
       }
     }
