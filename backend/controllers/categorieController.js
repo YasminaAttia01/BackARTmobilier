@@ -12,7 +12,10 @@ const getAllCategories = async (req, res) => {
     });
   } 
   catch (error) {
-      res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -24,7 +27,10 @@ const getCategorieById = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -49,7 +55,10 @@ const updateCategorie = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -59,7 +68,10 @@ const deleteCategorie = async (req, res) => {
       res.send({ message: "Successful" });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -71,7 +83,10 @@ const countCategories = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 

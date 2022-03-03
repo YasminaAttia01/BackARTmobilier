@@ -11,7 +11,10 @@ const getAllCommandes = async (req, res) => {
     });
   } 
   catch (error) {
-      res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -23,7 +26,10 @@ const getCommandeById = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -36,7 +42,10 @@ const addCommande = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -48,7 +57,10 @@ const updateCommande = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 

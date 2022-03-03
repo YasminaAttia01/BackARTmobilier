@@ -97,7 +97,7 @@ const countArticles = async (req, res) => {
   try {
       const count = await Article.countDocuments();
       res.send({ 
-        status: "Error",
+        status: "Success",
         message: {
           count: count,
         }

@@ -11,7 +11,10 @@ const getAllCommandeDetails = async (req, res) => {
     });
   } 
   catch (error) {
-      res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -23,7 +26,10 @@ const getCommandeDetailById = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -36,7 +42,10 @@ const addCommandeDetail = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -48,7 +57,10 @@ const updateCommandeDetail = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -58,7 +70,10 @@ const deleteCommandeDetail = async (req, res) => {
       res.send({ message: "Successful" });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -70,7 +85,10 @@ const countCommandeDetails = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 

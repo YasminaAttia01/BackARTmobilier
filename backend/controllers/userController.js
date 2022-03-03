@@ -8,7 +8,10 @@ const getAllUsers = async (req, res) => {
     });
   } 
   catch (error) {
-      res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -20,7 +23,10 @@ const getUserById = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 };
 
@@ -33,7 +39,10 @@ const addUser = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -45,7 +54,10 @@ const updateUser = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -55,7 +67,10 @@ const deleteUser = async (req, res) => {
       res.send({ message: "Successful" });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
@@ -67,7 +82,10 @@ const countUsers = async (req, res) => {
       });
   } 
   catch (error) {
-    res.send("Error")
+    res.send({ 
+      status: "Error",
+      message: error.message
+    });
   }
 }
 
