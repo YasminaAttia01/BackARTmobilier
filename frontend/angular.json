@@ -31,15 +31,11 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap",
-              "https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap",
-              "https://unpkg.com/boxicons@latest/css/boxicons.min.css", 
               "src/styles.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery/dist/jquery.min.js",
-              "https://unpkg.com/boxicons@latest/dist/boxicons.js"
+              "node_modules/jquery/dist/jquery.min.js"
             ]
           },
           "configurations": {
