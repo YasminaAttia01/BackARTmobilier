@@ -15,7 +15,11 @@ module.exports = function() {
   var strategy = new Strategy(params, function(payload, done) {
     var user = User.findById(payload.id, function(err, user) {
       if (err) {
-        return done(new Error("UserNotFound"), null);
+        done(new Error("UserNotFound"), null);
+        return res.send({ 
+          status: "Error",
+          message: "UserNotFound"
+        });
       } 
       else if(payload.expire<=Date.now()) {
         return done(new Error("TokenExpired"), null);
