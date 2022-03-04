@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-register',
@@ -13,40 +14,43 @@ export class RegisterComponent  {
   registerForm = this.fb.group({
     name:['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
-    username: ['', [Validators.required, Validators.minLength(6)]],
-    password: ['', Validators.required],
+    username: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   submitted = false;
-
-  errorResponse = false;
+  loadingSubmit = false;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService, 
     private router: Router,
-    private route$: ActivatedRoute) {}
+    private route$: ActivatedRoute,
+    private notifyService: NotificationService) {}
 
   onSubmit(): void {
     this.submitted = true;
-
-    this.userService.registerUser(this.registerForm.value).subscribe({
-      next:(res)=>{
-        console.log(res)
-        if(res.status==="Success"){
-          this.route$.url.subscribe( value =>
-            this.router.navigate([''])
-          ); 
-        }
-        else if (res.status==="Error"){
-          this.errorResponse = false;
-        }
-      },
-      error:(error)=>{
-        console.log(error)
-      },
-      complete:()=>{}
-    })
+    if (this.registerForm.valid) {
+      this.loadingSubmit = true;
+      this.userService.registerUser(this.registerForm.value).subscribe({
+        next:(res)=>{
+          if(res.status==="Success"){
+            this.route$.url.subscribe( value =>
+              this.router.navigate(['auth/login'])
+            ); 
+          }
+          else if (res.status==="Error"){
+            this.notifyService.showError("Message erreur", "Erreur")
+            this.loadingSubmit = false
+          }
+        },
+        error:(error)=>{
+          this.notifyService.showError("Message erreur", "Erreur")
+          this.loadingSubmit = false
+        },
+        complete:()=>{}
+      })
+    }
   }
 
   onReset() {

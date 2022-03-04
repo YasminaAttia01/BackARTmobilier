@@ -12,7 +12,4 @@ router.post("/register", authController.register)
 /* Se connecter*/
 router.post("/login", passport.authenticate("local"), authController.login)
 
-/* Se deconnecter */
-router.get("/logout", auth.authenticate(), authController.logout)
-
 module.exports = router

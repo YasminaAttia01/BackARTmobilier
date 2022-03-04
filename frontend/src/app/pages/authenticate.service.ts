@@ -20,12 +20,12 @@ export class AuthenticateService {
     return this.currentUserSubject$.value;
   }
 
-  login(email: string, password: string) {
+  login(username: string, password: string) {
     let _user: IUser;
-    return this.http.post<any>(`${environment. BASE_API_URI}/users/authenticate`, { email, password })
+    return this.http.post<any>(`${environment.BASE_API_URI}/auth/login`, { username, password })
       .pipe(map(response => {
-        _user = { ...response.payload.user };
-        _user.token = response.payload.token;
+        _user = { ...response.message.user };
+        _user.token = response.message.token;
         // login successful if there's a jwt token in the response
         if (_user && _user.token) {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
@@ -34,6 +34,10 @@ export class AuthenticateService {
         }
         return _user;
       }));
+  }
+
+  forget(username: string) {
+    return this.http.post<any>(`${environment.BASE_API_URI}/auth/forget`, { username }) as Observable<any>;
   }
 
   logout() {

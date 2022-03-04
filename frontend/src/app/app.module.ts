@@ -13,6 +13,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './pages/jwt.interceptors';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { PasswordComponent } from './pages/password/password.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,20 @@ import { JwtInterceptor } from './pages/jwt.interceptors';
     CommandesComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    PasswordComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 300000,
+      closeButton: true,
+      progressBar: true,
+    }),
   ],
   providers: [
     {

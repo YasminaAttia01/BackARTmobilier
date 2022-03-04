@@ -8,8 +8,9 @@
         <div class="col-md-6">
           <nav class="float-md-end mt-lg-0 mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" href="/">Accueil</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Se connecter</li>
+              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" routerLink="">Accueil</a></li>
+              <li class="breadcrumb-item mx-2">/</li>
+              <li class="breadcrumb-item font-14 font-poppins active" aria-current="page">Se connecter</li>
             </ol>
           </nav>
         </div>
@@ -23,25 +24,37 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-6 offset-lg-3">
+
           <div class="contact-form">
             <h3 class="font-32 dark-text text-center">Se connecter</h3>
-            <form action="/connexion" method="POST">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
               
-              <label for="email" class="mb-2">Adresse email</label>
-              <input type="text" name="email" id="email" class="form-control form-control-lg font-16" />
+            <label for="username" class="mt-4 mb-2">Pseudo</label>
+            <input formControlName="username" type="text" id="username" class="form-control form-control-lg font-16" 
+            [ngClass]="{'is-invalid': submitted && loginForm.controls['username'].hasError }"/>
+            <div *ngIf="submitted && loginForm.controls['username'].hasError('required')" class="invalid-feedback">
+              Le pseudo est obligatoire
+            </div>
               
-              <label for="password" class="mt-4 mb-2">Mot de passe</label>
-              <input type="password" name="password" id="password" class="form-control form-control-lg font-16" />
+            <label for="password" class="mt-4 mb-2">Mot de passe</label>
+            <input formControlName="password" type="password" id="password" class="form-control form-control-lg font-16"
+            [ngClass]="{'is-invalid': submitted && loginForm.controls['password'].hasError }" />
+            <div *ngIf="submitted && loginForm.controls['password'].hasError('required')" class="invalid-feedback">
+              Le mot de passe est obligatoire
+            </div>
               
-
-              
-              <button type="submit" class="hj-primary-btn mt-4 border-0">Se connecter</button>
+            <button class="hj-primary-btn mt-4 me-4 border-0">
+              Se connecter
+              <span *ngIf="loadingSubmit" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+            </button>
+            <button type="reset" (click)="onReset()" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
             </form>
+          
             <div class="mt-4 d-flex justify-content-between">
-              <a class="text-decoration-none link-hover dark-text" routerLink="auth/register">
+              <a class="text-decoration-none link-hover dark-text"  routerLink="../register">
                 Creer un compte
               </a>
-              <a class="text-decoration-none link-hover dark-text" routerLink="auth/password">
+              <a class="text-decoration-none link-hover dark-text" routerLink="../password">
                 Mot de passe oublie ?
               </a>
             </div>

@@ -42,23 +42,15 @@ const login = (req, res) => {
         res.json({ 
           status: "Success",
           message: {
-            token: token,
+            user: user,
+            token: token
           }
         });
       }
     });
 };
 
-const logout = (req, res) => {
-  req.logout();
-  res.json({ 
-    status: "Success",
-    message: "Successful logout"
-  });
-};
-
 module.exports = {
   login,
-  register,
-  logout,
+  register
 };

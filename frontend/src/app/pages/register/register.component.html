@@ -8,8 +8,9 @@
       <div class="col-md-6">
         <nav class="float-md-end mt-lg-0 mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" href="/">Accueil</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Creer un compte</li>
+            <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" routerLink="">Accueil</a></li>
+            <li class="breadcrumb-item mx-2">/</li>
+            <li class="breadcrumb-item font-14 font-poppins active" aria-current="page">Creer un compte</li>
           </ol>
         </nav>
       </div>
@@ -23,15 +24,6 @@
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-6 offset-lg-3">
-
-
-        <div *ngIf="errorResponse">
-          <div class="alert mb-4 alert-danger alert-dismissible fade show" role="alert">
-            <strong class="me-4">Erreur d'enregistrement !</strong> 
-            <span>Veuillez reessayer a nouveau</span> 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        </div>
 
         <div class="contact-form">
           <h3 class="font-32 dark-text text-center">Creer un compte</h3>
@@ -68,12 +60,15 @@
               Le mot de passe est obligatoire
             </div>
             
-            <button class="hj-primary-btn mt-4 me-4 border-0">Enregistrer</button>
+            <button class="hj-primary-btn mt-4 me-4 border-0">
+              Enregistrer
+              <span *ngIf="loadingSubmit" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+            </button>
             <button type="reset" (click)="onReset()" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
           </form>
 
           <div class="mt-4">
-            <a class="text-decoration-none link-hover dark-text" routerLink="auth/register">
+            <a class="text-decoration-none link-hover dark-text" routerLink="../login">
               Se connecter
             </a>
           </div>

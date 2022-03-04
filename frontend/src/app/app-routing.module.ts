@@ -4,6 +4,7 @@ import { AproposComponent } from './pages/apropos/apropos.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PasswordComponent } from './pages/password/password.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: "auth/password",
-    component: LoginComponent
+    component: PasswordComponent
   },
   {
     path: "articles",
@@ -31,11 +32,11 @@ const routes: Routes = [
     path: "apropos",
     component: AproposComponent
   },
-  {
+  /* {
     path:'**',
     redirectTo:'',
     pathMatch:'full'
-  },
+  } */
 ];
 
 @NgModule({
