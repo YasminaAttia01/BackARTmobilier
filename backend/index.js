@@ -8,14 +8,20 @@ auth = require('./middleware/auth.js')(),
 mongoose = require("mongoose"),
 passport = require("passport"),
 localStrategy = require("passport-local"),
-User = require("./models/user"),
 bodyParser = require("body-parser");
+cors = require('cors');
+
+User = require("./models/user"),
 
 authRoute = require("./routes/authRoute"),
 adminRoute = require("./routes/adminRoute"),
 appRoute = require("./routes/appRoute");
 
 dbConfig.dbconnexion()
+
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(session({
   secret: 'SECRET',
@@ -24,8 +30,6 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 app.use(auth.initialize());
 
 // Passport

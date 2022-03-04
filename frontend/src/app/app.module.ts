@@ -33,7 +33,11 @@ import { JwtInterceptor } from './pages/jwt.interceptors';
     ReactiveFormsModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: JwtInterceptor, 
+      multi: true 
+    },
   ],
   bootstrap: [AppComponent]
 })

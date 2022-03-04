@@ -19,6 +19,8 @@ export class RegisterComponent  {
 
   submitted = false;
 
+  errorResponse = false;
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService, 
@@ -30,15 +32,14 @@ export class RegisterComponent  {
 
     this.userService.registerUser(this.registerForm.value).subscribe({
       next:(res)=>{
+        console.log(res)
         if(res.status==="Success"){
           this.route$.url.subscribe( value =>
             this.router.navigate([''])
           ); 
-          alert('success :-)');
-          
         }
         else if (res.status==="Error"){
-          alert('error register :-)');
+          this.errorResponse = false;
         }
       },
       error:(error)=>{
