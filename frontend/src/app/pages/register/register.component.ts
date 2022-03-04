@@ -38,11 +38,11 @@ export class RegisterComponent  {
           
         }
         else if (res.status==="Error"){
-          //
+          alert('error register :-)');
         }
       },
       error:(error)=>{
-        //
+        console.log(error)
       },
       complete:()=>{}
     })
