@@ -25,28 +25,48 @@
       <div class="col-12 col-lg-6 offset-lg-3">
         <div class="contact-form">
           <h3 class="font-32 dark-text text-center">Creer un compte</h3>
-          <form action="/connexion" method="POST">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
             
-            <label for="email" class="mb-2">Prenom et nom</label>
-            <input type="text" name="email" id="email" class="form-control form-control-lg font-16" />
-            
-            <label for="email" class="mb-2">Adresse email</label>
-            <input type="email" name="email" id="email" class="form-control form-control-lg font-16" />
-            
-            <label for="email" class="mb-2">Pseudo</label>
-            <input type="text" name="email" id="email" class="form-control form-control-lg font-16" />
-            
+            <label for="name" class="mb-2">Prenom et nom</label>
+            <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" 
+            [ngClass]="{'is-invalid': submitted && registerForm.controls['name'].hasError }"/>
+            <div *ngIf="submitted && registerForm.controls['name'].hasError('required')" class="invalid-feedback">
+              Le nom est obligatoire
+            </div>
+
+            <label for="email" class="mt-4 mb-2">Adresse email</label>
+            <input formControlName="email" type="email" id="email" class="form-control form-control-lg font-16" 
+            [ngClass]="{'is-invalid': submitted && registerForm.controls['email'].hasError }"/>
+            <div *ngIf="submitted && registerForm.controls['email'].hasError('required')" class="invalid-feedback">
+              L' email est obligatoire
+            </div>
+            <div *ngIf="submitted && registerForm.controls['email'].hasError('email')" class="invalid-feedback">
+              Entrez un email valide
+            </div>
+
+            <label for="username" class="mt-4 mb-2">Username</label>
+            <input formControlName="username" type="text" id="username" class="form-control form-control-lg font-16" 
+            [ngClass]="{'is-invalid': submitted && registerForm.controls['username'].hasError }"/>
+            <div *ngIf="submitted && registerForm.controls['username'].hasError('required')" class="invalid-feedback">
+              Le pseudo est obligatoire
+            </div>
+
             <label for="password" class="mt-4 mb-2">Mot de passe</label>
-            <input type="password" name="password" id="password" class="form-control form-control-lg font-16" />
-            
-            <div class="mt-4 mb-0 d-flex justify-content-end">
-              <a class="text-decoration-none link-hover dark-text" routerLink="auth/register">
-                Se connecter
-              </a>
+            <input formControlName="password" type="password" id="password" class="form-control form-control-lg font-16"
+            [ngClass]="{'is-invalid': submitted && registerForm.controls['password'].hasError }" />
+            <div *ngIf="submitted && registerForm.controls['password'].hasError('required')" class="invalid-feedback">
+              Le mot de passe est obligatoire
             </div>
             
-            <button type="submit" class="hj-primary-btn mt-4 border-0">Enregistrer</button>
+            <button class="hj-primary-btn mt-4 me-4 border-0">Enregistrer</button>
+            <button type="reset" (click)="onReset()" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
           </form>
+
+          <div class="mt-4">
+            <a class="text-decoration-none link-hover dark-text" routerLink="auth/register">
+              Se connecter
+            </a>
+          </div>
         </div>
       </div>
     </div>
