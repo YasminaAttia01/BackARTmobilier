@@ -20,13 +20,22 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: "auth/password",
+    component: LoginComponent
+  },
+  {
     path: "articles",
     component: ArticlesComponent
   },
   {
     path: "apropos",
     component: AproposComponent
-  }
+  },
+  {
+    path:'**',
+    redirectTo:'',
+    pathMatch:'full'
+  },
 ];
 
 @NgModule({
