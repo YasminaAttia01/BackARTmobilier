@@ -11,7 +11,6 @@ export class AppComponent implements OnInit,OnDestroy {
   currentUser?: any;
   subscription?:any;
 
-
   constructor(
     private authenticationService: AuthenticateService
   ) { }
