@@ -21,6 +21,10 @@ export class ArticleService {
   getAllArticles():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/articles`) as Observable<any>
   }
+  
+  countArticles():Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/article/total`, { headers: this.reqHeader$ }) as Observable<any>
+  }
 
   addArticle(article:IArticle):Observable<any>{
       return this.http.post(`${environment.BASE_API_URI}/article/ajouter`, article, { headers: this.reqHeader$ }) as Observable<any>

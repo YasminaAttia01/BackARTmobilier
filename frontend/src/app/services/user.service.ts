@@ -25,6 +25,10 @@ export class UserService {
     return this.http.get(`${environment.BASE_API_URI}/backoffice/users`, { headers: this.reqHeader$ }) as Observable<any>
   }
 
+  countUsers():Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/backoffice/user/total`, { headers: this.reqHeader$ }) as Observable<any>
+  }
+
   addUser(user:IUser):Observable<any>{
     user.isAdmin = true
     return this.http.post(`${environment.BASE_API_URI}/backoffice/user/ajouter`, user, { headers: this.reqHeader$ }) as Observable<any>

@@ -21,6 +21,10 @@ export class CategorieService {
   getAllCategories():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/categories`, { headers: this.reqHeader$ }) as Observable<any>
   }
+  
+  countCategories():Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/categorie/total`, { headers: this.reqHeader$ }) as Observable<any>
+  }
 
   addCategorie(categorie:ICategorie):Observable<any>{
       return this.http.post(`${environment.BASE_API_URI}/categorie/ajouter`, categorie, { headers: this.reqHeader$ }) as Observable<any>

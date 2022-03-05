@@ -93,9 +93,14 @@ const deleteUser = async (req, res) => {
 
 const countUsers = async (req, res) => {
   try {
-      const count = await User.countDocuments();
-      res.json({
-        count: count,
+      const countVisiteur = await User.countDocuments();
+      const countAdmin = await User.countDocuments();
+      res.json({ 
+        status: "Success",
+        message: {
+          visiteur: countVisiteur,
+          admin: countAdmin,
+        }
       });
   } 
   catch (error) {
