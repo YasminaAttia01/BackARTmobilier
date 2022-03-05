@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AuthenticateService } from './pages/authenticate.service';
+import { AuthenticateService } from './services/authenticate.service';
 
 @Component({
   selector: 'app-root',

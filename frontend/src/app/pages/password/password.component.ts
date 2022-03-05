@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { AuthenticateService } from '../authenticate.service';
+import { AuthenticateService } from '../../services/authenticate.service';
 import { first } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NotificationService } from '../notification.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-password',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NotificationService } from '../notification.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-register',
