@@ -29,52 +29,59 @@
                     <div class="col-12">
                         <div class="contact-form">
                             <h3 class="font-20 dark-text">Ajouter un article</h3>
-                            <form  novalidate>
-                              <div class="row">
+                            <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" novalidate>
+                              <div class="row gy-4">
                                 <div class="col-lg-6">
-                                  <label for="name" class="mt-4 mb-2">Nom</label>
-                                  <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" />
-                                  <div class="invalid-feedback">
+                                  <label for="name" class="mb-2">Nom</label>
+                                  <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" 
+                                  [ngClass]="{'is-invalid': submitted && articleForm.controls['name'].hasError }"/>
+                                  <div *ngIf="submitted && articleForm.controls['name'].hasError('required')" class="invalid-feedback">
                                     Le nom est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-lg-6">
-                                  <label for="username" class="mt-4 mb-2">Prix</label>
-                                  <input formControlName="username" type="text" id="username" class="form-control form-control-lg font-16" />
-                                  <div class="invalid-feedback">
+                                  <label for="username" class="mb-2">Prix</label>
+                                  <input formControlName="prix" type="text" id="prix" class="form-control form-control-lg font-16"
+                                  [ngClass]="{'is-invalid': submitted && articleForm.controls['prix'].hasError }" />
+                                  <div *ngIf="submitted && articleForm.controls['prix'].hasError('required')" class="invalid-feedback">
                                     Le prix est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-12">
-                                  <label for="description" class="mt-4 mb-2">Description</label>
-                                  <textarea formControlName="description" id="description" rows="4" class="form-control form-control-lg font-16">
-                                </textarea>
-                                  <div class="invalid-feedback">
+                                  <label for="description" class="mb-2">Description</label>
+                                  <textarea formControlName="description" id="description" rows="4" class="form-control form-control-lg font-16"
+                                  [ngClass]="{'is-invalid': submitted && articleForm.controls['description'].hasError }">
+                                  </textarea>
+                                  <div *ngIf="submitted && articleForm.controls['description'].hasError('required')" class="invalid-feedback">
                                     La description est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-lg-6">
-                                  <label for="image" class="mt-4 mb-2">Image</label>
-                                  <input formControlName="image" type="text" id="image" class="form-control form-control-lg font-16" />
-                                  <div class="invalid-feedback">
+                                  <label for="image" class="mb-2">Image</label>
+                                  <input formControlName="image" type="text" id="image" class="form-control form-control-lg font-16" 
+                                  [ngClass]="{'is-invalid': submitted && articleForm.controls['image'].hasError }"/>
+                                  <div *ngIf="submitted && articleForm.controls['image'].hasError('required')" class="invalid-feedback">
                                     L' image est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-lg-6">
-                                  <label for="categorie" class="mt-4 mb-2">Categorie</label>
-                                  <select formControlName="categorie" id="categorie" class="form-control form-control-lg font-16">
-                                        <option>sss</option>
-                                    </select>
-                                  <div class="invalid-feedback">
+                                  <label for="categorie" class="mb-2">Categorie</label>
+                                  <select formControlName="categorie" id="categorie" class="form-control form-control-lg font-16"
+                                  [ngClass]="{'is-invalid': submitted && articleForm.controls['categorie'].hasError }">
+                                        <option *ngFor="let categorie of categories" [value]="categorie._id" >
+                                          {{ categorie.name }}
+                                        </option>
+                                  </select>
+                                  <div *ngIf="submitted && articleForm.controls['categorie'].hasError('required')" class="invalid-feedback">
                                     La categorie est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-12">
                                   <button class="hj-primary-btn mt-4 me-4 border-0">
                                     Enregistrer
-                                    <span class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+                                    <span *ngIf="loadingSubmit" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
                                   </button>
-                                  <button type="reset" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
+                                  <button type="reset" (click)="onReset()"  class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
                                 </div>
                               </div>
                             </form>

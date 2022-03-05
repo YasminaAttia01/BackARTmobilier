@@ -23,7 +23,7 @@ export class ArticleService {
   }
 
   addArticle(article:IArticle):Observable<any>{
-      return this.http.post(`${environment.BASE_API_URI}/article/ajouter`, article) as Observable<any>
+      return this.http.post(`${environment.BASE_API_URI}/article/ajouter`, article, { headers: this.reqHeader$ }) as Observable<any>
   }
 
   removeArticle(article:IArticle): Observable<any>{
