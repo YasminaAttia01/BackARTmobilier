@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ICategorie } from 'src/app/services/categorie.model';
 import { CategorieService } from '../../services/categorie.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-admin-categorie',
@@ -9,7 +11,9 @@ import { CategorieService } from '../../services/categorie.service';
 export class AdminCategorieComponent implements OnInit {
   categories?: any;
 
-  constructor(private categorieService: CategorieService) { }
+  constructor(
+    private categorieService: CategorieService,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     this.categorieService.getAllCategories().subscribe(data => {
@@ -18,6 +22,19 @@ export class AdminCategorieComponent implements OnInit {
       }
       else{
         this.categories=data.message.categories
+      }
+    })
+  }
+
+  onDelete(currentCategorie:ICategorie) {
+    console.log(currentCategorie)
+    this.categorieService.removeCategorie(currentCategorie).subscribe(data => {
+      if(data.status==="Error"){
+        this.notifyService.showError("Message erreur", "Erreur")
+      }
+      else{
+        this.notifyService.showSuccess("Message success", "Succes")
+        window.location.reload();   
       }
     })
   }
