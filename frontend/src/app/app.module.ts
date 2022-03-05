@@ -16,6 +16,13 @@ import { JwtInterceptor } from './pages/jwt.interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { PasswordComponent } from './pages/password/password.component';
+import { PanierComponent } from './pages/panier/panier.component';
+import { AdminDashboardComponent } from './backoffice/admin-dashboard/admin-dashboard.component';
+import { AdminArticleComponent } from './backoffice/admin-article/admin-article.component';
+import { AdminCategorieComponent } from './backoffice/admin-categorie/admin-categorie.component';
+import { AdminUserComponent } from './backoffice/admin-user/admin-user.component';
+import { AdminCommandeComponent } from './backoffice/admin-commande/admin-commande.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +35,14 @@ import { PasswordComponent } from './pages/password/password.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    PasswordComponent
+    PasswordComponent,
+    PanierComponent,
+    AdminDashboardComponent,
+    AdminArticleComponent,
+    AdminCategorieComponent,
+    AdminUserComponent,
+    AdminCommandeComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

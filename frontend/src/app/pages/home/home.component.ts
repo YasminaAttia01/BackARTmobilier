@@ -9,8 +9,7 @@ import { ArticleService } from '../article.service';
 export class HomeComponent implements OnInit {
   articles?: any;
 
-  constructor(
-    private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
     this.articleService.getAllArticles().subscribe(data => {

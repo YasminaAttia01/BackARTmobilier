@@ -46,7 +46,8 @@
                   <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1">
                     <li class="dropdown-item bg-primary text-white text-center font-14 fw-500">{{ userInfo?.name }}</li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item font-14 fw-500" href="#">Mon panier</a></li>
+                    <li *ngIf="userInfo.isAdmin"><a class="dropdown-item font-14 fw-500" routerLink="admin/dashboard">Administration</a></li>
+                    <li><a class="dropdown-item font-14 fw-500" routerLink="">Mon panier</a></li>
                     <li><a class="dropdown-item font-14 fw-500" type="button" (click)="logout()">Deconnection</a></li>
                   </ul>
                 </div>
