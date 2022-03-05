@@ -27,7 +27,6 @@ export class AdminCategorieComponent implements OnInit {
   }
 
   onDelete(currentCategorie:ICategorie) {
-    console.log(currentCategorie)
     this.categorieService.removeCategorie(currentCategorie).subscribe(data => {
       if(data.status==="Error"){
         this.notifyService.showError("Message erreur", "Erreur")
