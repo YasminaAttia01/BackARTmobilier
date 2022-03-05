@@ -13,11 +13,11 @@ import { CategorieService } from '../../services/categorie.service';
 export class AdminArticleAddComponent implements OnInit {
   categories?: any;
 
-  articleForm = this.fb.group({
+  articleForm = this.formbuilder.group({
     name:['', Validators.required],
     image: ['', Validators.required],
     description: ['', Validators.required],
-    prix: ['', Validators.required],
+    prix: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
     categorie: ['', Validators.required],
   });
 
@@ -25,7 +25,7 @@ export class AdminArticleAddComponent implements OnInit {
   loadingSubmit = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formbuilder: FormBuilder,
     private articleService: ArticleService, 
     private router: Router,
     private route$: ActivatedRoute,

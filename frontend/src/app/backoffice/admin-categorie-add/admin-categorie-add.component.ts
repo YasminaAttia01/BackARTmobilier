@@ -10,7 +10,7 @@ import { CategorieService } from '../../services/categorie.service';
   styleUrls: ['./admin-categorie-add.component.css']
 })
 export class AdminCategorieAddComponent implements OnInit {
-  categorieForm = this.fb.group({
+  categorieForm = this.formbuilder.group({
     name:['', Validators.required]
   });
 
@@ -18,7 +18,7 @@ export class AdminCategorieAddComponent implements OnInit {
   loadingSubmit = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formbuilder: FormBuilder,
     private articleService: CategorieService, 
     private router: Router,
     private route$: ActivatedRoute,

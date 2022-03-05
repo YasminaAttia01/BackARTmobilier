@@ -11,7 +11,7 @@ import { NotificationService } from '../../services/notification.service';
 })
 
 export class RegisterComponent  {
-  registerForm = this.fb.group({
+  registerForm = this.formbuilder.group({
     name:['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     username: ['', Validators.required],
@@ -22,7 +22,7 @@ export class RegisterComponent  {
   loadingSubmit = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formbuilder: FormBuilder,
     private userService: UserService, 
     private router: Router,
     private route$: ActivatedRoute,

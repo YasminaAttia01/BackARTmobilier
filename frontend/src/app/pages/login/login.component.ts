@@ -11,7 +11,7 @@ import { NotificationService } from '../../services/notification.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  loginForm = this.fb.group({
+  loginForm = this.formbuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
   });
@@ -20,7 +20,7 @@ export class LoginComponent {
   loadingSubmit = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formbuilder: FormBuilder,
     private authenticationService:AuthenticateService, 
     private router:Router,
     private route$:ActivatedRoute,

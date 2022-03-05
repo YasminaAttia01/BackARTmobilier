@@ -41,12 +41,12 @@ export class AdminDashboardComponent implements OnInit {
 
       this.userService.countUsers().subscribe(data => {
         if(data.status==="Error"){
-          this.countVisiteurs= 0;
-          this.countAdmins= 0;
+          this.countVisiteurs= '0';
+          this.countAdmins= '0';
         }
         else{
-          this.countVisiteurs=data.message.visiteur
-          this.countAdmins=data.message.admin
+          this.countVisiteurs=data.message.visiteurCount
+          this.countAdmins=data.message.adminCount
         }
       })
     }

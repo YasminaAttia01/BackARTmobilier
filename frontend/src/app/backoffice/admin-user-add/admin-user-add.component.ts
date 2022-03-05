@@ -10,7 +10,7 @@ import { NotificationService } from '../../services/notification.service';
   styleUrls: ['./admin-user-add.component.css']
 })
 export class AdminUserAddComponent implements OnInit {
-  adminForm = this.fb.group({
+  adminForm = this.formbuilder.group({
     name:['', Validators.required],
     email: ['', [Validators.required, Validators.email]],
     username: ['', Validators.required],
@@ -21,7 +21,7 @@ export class AdminUserAddComponent implements OnInit {
   loadingSubmit = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formbuilder: FormBuilder,
     private userService: UserService, 
     private router: Router,
     private route$: ActivatedRoute,

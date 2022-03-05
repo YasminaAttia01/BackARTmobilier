@@ -46,6 +46,9 @@
                                   <div *ngIf="submitted && articleForm.controls['prix'].hasError('required')" class="invalid-feedback">
                                     Le prix est obligatoire
                                   </div>
+                                  <div *ngIf="submitted && articleForm.controls['prix'].hasError('pattern')" class="invalid-feedback">
+                                    Le prix est un entier
+                                  </div>
                                 </div>
                                 <div class="col-12">
                                   <label for="description" class="mb-2">Description</label>
