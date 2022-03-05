@@ -13,7 +13,7 @@ export class AdminArticleComponent implements OnInit {
 
   ngOnInit(): void {
     this.articleService.getAllArticles().subscribe(data => {
-      if(data.status==="error"){
+      if(data.status==="Error"){
         this.articles=[];
       }
       else{
