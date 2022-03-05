@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CategorieService } from '../../services/categorie.service';
 
 @Component({
   selector: 'app-admin-categorie',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-categorie.component.css']
 })
 export class AdminCategorieComponent implements OnInit {
+  categories?: any;
 
-  constructor() { }
+  constructor(private categorieService: CategorieService) { }
 
   ngOnInit(): void {
+    this.categorieService.getAllCategories().subscribe(data => {
+      if(data.status==="Error"){
+        this.categories=[];
+      }
+      else{
+        this.categories=data.message.categories
+      }
+    })
   }
 
 }

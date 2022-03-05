@@ -29,8 +29,8 @@
                     <div class="col-12">
                         <div class="row gy-4">
                             <div class="col-md-6">
-                                <button class="hj-primary-btn border-0">
-                                    Se connecter
+                                <button routerLink="../user/ajouter" class="hj-primary-btn border-0">
+                                    Ajouter
                                 </button>
                             </div>
                             <div class="col-md-6">
@@ -55,10 +55,7 @@
                                             <span class="fs-bold">{{ user.name }}</span>
                                         </td>
                                         <td>
-                                            <div class="d-flex flex-row align-items-center"> 
-                                                <img src="https://i.imgur.com/ZSkeqnd.jpg" width="50" class="rounded-circle me-2">
-                                                <span class="fs-bold">{{ user.username }}</span> 
-                                            </div>
+                                            <span class="fs-bold">{{ user.username }}</span> 
                                         </td>
                                         <td>
                                             <span class="fs-bold">{{ user.email }}</span>

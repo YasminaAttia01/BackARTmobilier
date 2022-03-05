@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminArticleAddComponent } from './backoffice/admin-article-add/admin-article-add.component';
 import { AdminArticleComponent } from './backoffice/admin-article/admin-article.component';
+import { AdminCategorieAddComponent } from './backoffice/admin-categorie-add/admin-categorie-add.component';
 import { AdminCategorieComponent } from './backoffice/admin-categorie/admin-categorie.component';
 import { AdminCommandeComponent } from './backoffice/admin-commande/admin-commande.component';
 import { AdminDashboardComponent } from './backoffice/admin-dashboard/admin-dashboard.component';
+import { AdminUserAddComponent } from './backoffice/admin-user-add/admin-user-add.component';
 import { AdminUserComponent } from './backoffice/admin-user/admin-user.component';
 import { AproposComponent } from './pages/apropos/apropos.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
@@ -51,16 +54,28 @@ const routes: Routes = [
     component: AdminUserComponent
   },
   {
+    path: "admin/user/ajouter",
+    component: AdminUserAddComponent
+  },
+  {
+    path: "admin/commandes",
+    component: AdminCommandeComponent
+  },
+  {
     path: "admin/articles",
     component: AdminArticleComponent
+  },
+  {
+    path: "admin/article/ajouter",
+    component: AdminArticleAddComponent
   },
   {
     path: "admin/categories",
     component: AdminCategorieComponent
   },
   {
-    path: "admin/commandes",
-    component: AdminCommandeComponent
+    path: "admin/categorie/ajouter",
+    component: AdminCategorieAddComponent
   },
   {
     path:'**',

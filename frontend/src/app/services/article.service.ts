@@ -9,13 +9,13 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ArticleService {
-  // private reqHeader$: HttpHeaders; 
+  private reqHeader$: HttpHeaders; 
    
   constructor(private http:HttpClient){
-    /* this.reqHeader$ = new HttpHeaders({ 
+    this.reqHeader$ = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser') as string).token
-    }); */ 
+    }); 
   }
 
   getAllArticles():Observable<any>{

@@ -1,0 +1,78 @@
+<!-- Start Page Breadcrumb -->
+<section class="hj-breadcrumb bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h3 class="font-28 font-roboto fw-bold mb-0">Administration</h3>
+        </div>
+        <div class="col-md-6">
+          <nav class="float-md-end mt-lg-0 mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" routerLink="">Adminnistration</a></li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+</section>
+    <!-- End Page Breadcrumb -->
+
+<!-- Start Dashboard -->
+<section class="hj-faq-section mx-2 my-5">
+    <div class="container-fluid">
+        <div class="row gy-5">
+            <div class="col-lg-3">
+                <app-navbar></app-navbar>
+            </div>
+            <div class="col-lg-9">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="contact-form">
+                            <h3 class="font-20 dark-text">Ajouter un utilisateur</h3>
+                            <form  novalidate>
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <label for="name" class="mt-4 mb-2">Nom</label>
+                                  <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" />
+                                  <div class="invalid-feedback">
+                                    Le nom est obligatoire
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <label for="username" class="mt-4 mb-2">Username</label>
+                                  <input formControlName="username" type="text" id="username" class="form-control form-control-lg font-16" />
+                                  <div class="invalid-feedback">
+                                    Le pseudo est obligatoire
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <label for="email" class="mt-4 mb-2">Email</label>
+                                  <input formControlName="email" type="email" id="email" class="form-control form-control-lg font-16" />
+                                  <div class="invalid-feedback">
+                                    L' email est obligatoire
+                                  </div>
+                                </div>
+                                <div class="col-lg-6">
+                                  <label for="password" class="mt-4 mb-2">Mot de passe</label>
+                                  <input formControlName="password" type="password" id="password" class="form-control form-control-lg font-16" />
+                                  <div class="invalid-feedback">
+                                    Le mot de passe est obligatoire
+                                  </div>
+                                </div>
+                                <div class="col-12">
+                                  <button class="hj-primary-btn mt-4 me-4 border-0">
+                                    Enregistrer
+                                    <span class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+                                  </button>
+                                  <button type="reset" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Dashboard -->

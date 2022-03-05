@@ -23,6 +23,9 @@ import { AdminCategorieComponent } from './backoffice/admin-categorie/admin-cate
 import { AdminUserComponent } from './backoffice/admin-user/admin-user.component';
 import { AdminCommandeComponent } from './backoffice/admin-commande/admin-commande.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { AdminUserAddComponent } from './backoffice/admin-user-add/admin-user-add.component';
+import { AdminArticleAddComponent } from './backoffice/admin-article-add/admin-article-add.component';
+import { AdminCategorieAddComponent } from './backoffice/admin-categorie-add/admin-categorie-add.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     AdminUserComponent,
     AdminCommandeComponent,
     NavbarComponent,
+    AdminUserAddComponent,
+    AdminArticleAddComponent,
+    AdminCategorieAddComponent,
   ],
   imports: [
     BrowserModule,
