@@ -5,7 +5,7 @@ const categorieController = require("../controllers/categorieController");
 const auth = require("../middleware/auth")();
 
 /* Afficher tous les articles */
-router.get("/articles", auth.authenticate(), articleController.getAllArticles);
+router.get("/articles", articleController.getAllArticles);
 
 /* Afficher le total des articles */
 router.get("/article/total", auth.authenticate(), articleController.countArticles);
@@ -25,7 +25,7 @@ router.delete("/article/supprimer/:id", auth.authenticate(), articleController.d
 
 
 /* Afficher toutes les categories */
-router.get("/categories", auth.authenticate(), categorieController.getAllCategories);
+router.get("/categories", categorieController.getAllCategories);
 
 /* Afficher le total des categories */
 router.get("/categorie/total", auth.authenticate(), categorieController.countCategories);
