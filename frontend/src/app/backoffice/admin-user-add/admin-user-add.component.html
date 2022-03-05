@@ -28,9 +28,9 @@
                 <div class="row gy-4">
                     <div class="col-12">
                         <div class="contact-form">
-                            <h3 class="font-20 dark-text">Ajouter un administrateur</h3>
-                            <form  [formGroup]="adminForm" (ngSubmit)="onSubmit()" novalidate>
-                              <div class="row">
+                            <h3 class="font-20 dark-text mb-4">Ajouter un administrateur</h3>
+                            <form [formGroup]="adminForm" (ngSubmit)="onSubmit()" novalidate>
+                              <div class="row gy-4">
                                 <div class="col-lg-6">
                                   <label for="name" class="mb-2">Prenom et nom</label>
                                   <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" 
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-lg-6">
 
-                                  <label for="username" class="mt-4 mb-2">Username</label>
+                                  <label for="username" class="mb-2">Username</label>
                                   <input formControlName="username" type="text" id="username" class="form-control form-control-lg font-16" 
                                   [ngClass]="{'is-invalid': submitted && adminForm.controls['username'].hasError }"/>
                                   <div *ngIf="submitted && adminForm.controls['username'].hasError('required')" class="invalid-feedback">
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-lg-6">
 
-                                  <label for="email" class="mt-4 mb-2">Adresse email</label>
+                                  <label for="email" class="mb-2">Adresse email</label>
                                   <input formControlName="email" type="email" id="email" class="form-control form-control-lg font-16" 
                                   [ngClass]="{'is-invalid': submitted && adminForm.controls['email'].hasError }"/>
                                   <div *ngIf="submitted && adminForm.controls['email'].hasError('required')" class="invalid-feedback">
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-lg-6">
 
-                                  <label for="password" class="mt-4 mb-2">Mot de passe</label>
+                                  <label for="password" class="mb-2">Mot de passe</label>
                                   <input formControlName="password" type="password" id="password" class="form-control form-control-lg font-16"
                                   [ngClass]="{'is-invalid': submitted && adminForm.controls['password'].hasError }" />
                                   <div *ngIf="submitted && adminForm.controls['password'].hasError('required')" class="invalid-feedback">
@@ -70,7 +70,7 @@
                                   </div>
                                 </div>
                                 <div class="col-12">
-                                  <button class="hj-primary-btn mt-4 me-4 border-0">
+                                  <button class="hj-primary-btn me-4 border-0">
                                     Enregistrer
                                     <span *ngIf="loadingSubmit" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
                                   </button>

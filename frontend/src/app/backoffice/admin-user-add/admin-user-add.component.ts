@@ -38,7 +38,7 @@ export class AdminUserAddComponent implements OnInit {
         next:(res)=>{
           if(res.status==="Success"){
             this.route$.url.subscribe( value =>
-              this.router.navigate(['admin/uers'])
+              this.router.navigate(['admin/users'])
             ); 
           }
           else if (res.status==="Error"){
