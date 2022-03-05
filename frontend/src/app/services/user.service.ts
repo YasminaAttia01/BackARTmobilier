@@ -30,4 +30,12 @@ export class UserService {
     return this.http.post(`${environment.BASE_API_URI}/backoffice/user/ajouter`, user, { headers: this.reqHeader$ }) as Observable<any>
   }
 
+  removeArticle(user:IUser): Observable<any>{
+     return this.http.delete(`${environment.BASE_API_URI}/backoffice/user/supprimer/${user._id}`, { headers: this.reqHeader$ }) as Observable<any>
+  }
+
+  updateArticle(user:IUser):Observable<any>{
+    return this.http.put(`${environment.BASE_API_URI}/backoffice/user/modifier/${user._id}`, user, { headers: this.reqHeader$ }) as Observable<any>
+  }
+
 }

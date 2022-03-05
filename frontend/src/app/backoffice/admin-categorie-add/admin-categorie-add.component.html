@@ -29,21 +29,22 @@
                     <div class="col-12">
                         <div class="contact-form">
                             <h3 class="font-20 dark-text">Ajouter une categorie</h3>
-                            <form  novalidate>
+                            <form [formGroup]="categorieForm" (ngSubmit)="onSubmit()" novalidate>
                               <div class="row">
                                 <div class="col-12">
-                                  <label for="name" class="mt-4 mb-2">Nom</label>
-                                  <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" />
-                                  <div class="invalid-feedback">
+                                  <label for="name" class="mb-2">Nom</label>
+                                  <input formControlName="name" type="text" id="name" class="form-control form-control-lg font-16" 
+                                  [ngClass]="{'is-invalid': submitted && categorieForm.controls['name'].hasError }"/>
+                                  <div *ngIf="submitted && categorieForm.controls['name'].hasError('required')" class="invalid-feedback">
                                     Le nom est obligatoire
                                   </div>
                                 </div>
                                 <div class="col-12">
                                   <button class="hj-primary-btn mt-4 me-4 border-0">
                                     Enregistrer
-                                    <span class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
+                                    <span *ngIf="loadingSubmit" class="spinner-border spinner-border-sm ms-2" role="status" aria-hidden="true"></span>
                                   </button>
-                                  <button type="reset" class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
+                                  <button type="reset" (click)="onReset()"  class="hj-primary-btn bg-secondary mt-4 border-0">Annuler</button>
                                 </div>
                               </div>
                             </form>

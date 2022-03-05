@@ -27,10 +27,10 @@ export class ArticleService {
   }
 
   removeArticle(article:IArticle): Observable<any>{
-     return this.http.delete(`${environment.BASE_API_URI}/article/supprimer/${article._id}`)
+     return this.http.delete(`${environment.BASE_API_URI}/article/supprimer/${article._id}`, { headers: this.reqHeader$ }) as Observable<any>
   }
 
   updateArticle(article:IArticle):Observable<any>{
-    return this.http.put(`${environment.BASE_API_URI}/articles/modifier/${article._id}`, article)
+    return this.http.put(`${environment.BASE_API_URI}/article/modifier/${article._id}`, article, { headers: this.reqHeader$ }) as Observable<any>
   }
 }

@@ -22,15 +22,15 @@ export class CategorieService {
     return this.http.get(`${environment.BASE_API_URI}/categories`, { headers: this.reqHeader$ }) as Observable<any>
   }
 
-  addCategorie(article:ICategorie):Observable<any>{
-      return this.http.post(`${environment.BASE_API_URI}/categorie/ajouter`, article) as Observable<any>
+  addCategorie(categorie:ICategorie):Observable<any>{
+      return this.http.post(`${environment.BASE_API_URI}/categorie/ajouter`, categorie, { headers: this.reqHeader$ }) as Observable<any>
   }
 
-  removeCategorie(article:ICategorie): Observable<any>{
-     return this.http.delete(`${environment.BASE_API_URI}/categorie/supprimer/${article._id}`)
+  removeCategorie(categorie:ICategorie): Observable<any>{
+     return this.http.delete(`${environment.BASE_API_URI}/categorie/supprimer/${categorie._id}`, { headers: this.reqHeader$ }) as Observable<any>
   }
 
-  updateCategorie(article:ICategorie):Observable<any>{
-    return this.http.put(`${environment.BASE_API_URI}/categorie/modifier/${article._id}`, article)
+  updateCategorie(categorie:ICategorie):Observable<any>{
+    return this.http.put(`${environment.BASE_API_URI}/categorie/modifier/${categorie._id}`, categorie, { headers: this.reqHeader$ }) as Observable<any>
   }
 }
