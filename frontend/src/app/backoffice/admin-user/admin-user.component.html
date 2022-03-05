@@ -30,7 +30,7 @@
                         <div class="row gy-4">
                             <div class="col-md-6">
                                 <button routerLink="../user/ajouter" class="hj-primary-btn border-0">
-                                    Ajouter
+                                    Ajouter un administrateur
                                 </button>
                             </div>
                             <div class="col-md-6">
@@ -46,6 +46,7 @@
                                         <th class="text-start ps-3">Nom</th>
                                         <th>Username</th>
                                         <th>Email</th>
+                                        <th>Role</th>
                                         <th class="text-end pe-3">Action</th>
                                     </tr>
                                 </thead>
@@ -59,6 +60,16 @@
                                         </td>
                                         <td>
                                             <span class="fs-bold">{{ user.email }}</span>
+                                        </td>
+                                        <td>
+                                            <span *ngIf="user.isAdmin; else isUser" class="badge bg-success p-2">
+                                                Administrateur
+                                            </span>
+                                            <ng-template #isUser>
+                                                <span class="badge bg-danger p-2">
+                                                    Visiteur
+                                                </span>
+                                            </ng-template>
                                         </td>
                                         <td class="text-end pe-3">
                                             <a class="me-3 text-success" href="">

@@ -25,4 +25,8 @@ export class UserService {
     return this.http.get(`${environment.BASE_API_URI}/backoffice/users`, { headers: this.reqHeader$ }) as Observable<any>
   }
 
+  addUser(user:IUser):Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/backoffice/user/ajouter`, {headers: this.reqHeader$ }) as Observable<any>
+  }
+
 }
