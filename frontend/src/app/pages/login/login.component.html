@@ -8,7 +8,7 @@
         <div class="col-md-6">
           <nav class="float-md-end mt-lg-0 mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" routerLink="">Accueil</a></li>
+              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" [routerLink]="''">Accueil</a></li>
               <li class="breadcrumb-item mx-2">/</li>
               <li class="breadcrumb-item font-14 font-poppins active" aria-current="page">Se connecter</li>
             </ol>
@@ -51,10 +51,10 @@
             </form>
           
             <div class="mt-4 d-flex justify-content-between">
-              <a class="text-decoration-none link-hover dark-text"  routerLink="../register">
+              <a class="text-decoration-none link-hover dark-text"  [routerLink]="'/auth/register'">
                 Creer un compte
               </a>
-              <a class="text-decoration-none link-hover dark-text" routerLink="../password">
+              <a class="text-decoration-none link-hover dark-text" [routerLink]="'/auth/password'">
                 Mot de passe oublie ?
               </a>
             </div>
