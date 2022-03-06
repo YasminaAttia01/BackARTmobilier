@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICategorie } from './categorie.model';
+import { ICategorie } from '../models/categorie.model';
 import { environment } from 'src/environments/environment';
 import { AuthenticateService } from './authenticate.service';
 
