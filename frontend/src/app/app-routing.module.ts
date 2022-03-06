@@ -15,6 +15,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { PasswordComponent } from './pages/password/password.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { IsAdminGuard } from './permissions/is-admin.guard';
+import { UserAuthGuard } from './permissions/user-auth.guard';
+import { UserNotAuthGuard } from './permissions/user-not-auth.guard';
 
 const routes: Routes = [
   {
@@ -23,15 +26,18 @@ const routes: Routes = [
   },
   {
     path: "auth/login",
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [UserAuthGuard]
   },
   {
     path: "auth/register",
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [UserAuthGuard]
   },
   {
     path: "auth/password",
-    component: PasswordComponent
+    component: PasswordComponent,
+    canActivate: [UserAuthGuard]
   },
   {
     path: "articles",
@@ -47,35 +53,43 @@ const routes: Routes = [
   },
   {
     path: "admin/dashboard",
-    component: AdminDashboardComponent
+    component: AdminDashboardComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/users",
-    component: AdminUserComponent
+    component: AdminUserComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/user/ajouter",
-    component: AdminUserAddComponent
+    component: AdminUserAddComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/commandes",
-    component: AdminCommandeComponent
+    component: AdminCommandeComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/articles",
-    component: AdminArticleComponent
+    component: AdminArticleComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/article/ajouter",
-    component: AdminArticleAddComponent
+    component: AdminArticleAddComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/categories",
-    component: AdminCategorieComponent
+    component: AdminCategorieComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path: "admin/categorie/ajouter",
-    component: AdminCategorieAddComponent
+    component: AdminCategorieAddComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
     path:'**',
