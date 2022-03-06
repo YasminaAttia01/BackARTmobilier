@@ -18,16 +18,22 @@ Pages administrateurs:
 ## Setup
 
 ``` bash
-# installer les dependances
-$ npm install -g
+Backend:
+# Installer les dependances
+$ npm install 
 # creer un fichier d'environnement .env
 # creer un compte un mongo atlas
 # creer une base de donnees
 # ajouter l'url de connexion MONGO_URL dans le fichier .env
 # ajouter un HOST dans le fichier .env
 # ajouter un PORT dans le fichier .env
-# ajouter un SESSION_SECRET dans le fichier .env
 # Demarrer le serveur
 $ npm start
-$ Ouvrir sur un navigateur l'url localhost:PORT
+Frontend: 
+# Installer les dependances
+$ npm install 
+# Demarrer le serveur
+$ ng serve
+# Ouvrir sur un navigateur
+# localhost:4200
 ```
