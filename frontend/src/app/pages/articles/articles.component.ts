@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../../services/article.service';
 
 @Component({
   selector: 'app-articles',
@@ -7,19 +6,9 @@ import { ArticleService } from '../../services/article.service';
   styleUrls: ['./articles.component.css']
 })
 export class ArticlesComponent implements OnInit {
-  articles?: any;
 
-  constructor(private articleService: ArticleService) { }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.articleService.getAllArticles().subscribe(data => {
-      if(data.status==="error"){
-        this.articles=[];
-      }
-      else{
-        this.articles=data.message.articles
-      }
-    })
-  }
+  ngOnInit(): void { }
 
 }

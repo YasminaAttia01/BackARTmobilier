@@ -4,4 +4,5 @@ export interface IArticle{
     descripntion: string
     image: string
     prix: number
+    qt: number
 }

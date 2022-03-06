@@ -22,34 +22,9 @@
   <!-- Start Shop -->
   <section class="hj-faq-section mt-5 py-4">
     <div class="container">
-
-      <div class="row">
-        <!-- Products -->
-        <div *ngFor="let article of articles" class="col-sm-6 col-md-4 col-lg-3 p-3 hj-product-item">
-          <div class="hj-product-card card">
-            <div class="hj-product-img overflow-hidden cursor-pointer position-relative bg-dark">
-              <img [src]="article.image" class="img-fluid w-100" style="height: 350px;" alt="product" />
-              <div class="hj-product-action-btn position-absolute top-50 start-50 translate-middle">
-                <a href="#" class="px-3 py-2 bg-white dark-text font-18 d-inline-block hover-btn">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div class="hj-product-info bg-white p-3">
-              <h6 class="font-16 link-hover font-roboto cursor-pointer text-capitalize">{{ article.name }}</h6>
-              <div class="hj-product-price">
-                  <span class="primary-text font-16 fw-bold">{{ article.prix }} FCFA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- !Products -->
-      </div>
-
+      <app-products></app-products>
     </div>
-  </section>
+</section>
   <!-- End Shop -->
 
 

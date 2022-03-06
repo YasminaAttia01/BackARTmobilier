@@ -9,6 +9,7 @@ import { AdminDashboardComponent } from './backoffice/admin-dashboard/admin-dash
 import { AdminUserAddComponent } from './backoffice/admin-user-add/admin-user-add.component';
 import { AdminUserComponent } from './backoffice/admin-user/admin-user.component';
 import { AproposComponent } from './pages/apropos/apropos.component';
+import { ArticleComponent } from './pages/article/article.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: "articles",
     component: ArticlesComponent
+  },
+  {
+    path: "articles/:_id",
+    component: ArticleComponent
   },
   {
     path: "apropos",

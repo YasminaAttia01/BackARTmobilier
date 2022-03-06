@@ -30,6 +30,10 @@ export class ArticleService {
   getAllArticles():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/articles`) as Observable<any>
   }
+
+  getArticle(_id:string):Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/article/${_id}`) as Observable<any>
+  }
   
   countArticles():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/article/total`, { headers: this.reqHeader() }) as Observable<any>

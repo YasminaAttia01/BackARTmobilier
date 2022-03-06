@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IArticle } from 'src/app/services/article.model';
+import { IArticle } from '../../models/article.model';
 import { ArticleService } from '../../services/article.service';
 import { NotificationService } from '../../services/notification.service';
 
