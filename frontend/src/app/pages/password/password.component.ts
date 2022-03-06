@@ -11,14 +11,14 @@ import { NotificationService } from '../../services/notification.service';
   styleUrls: ['./password.component.css']
 })
 export class PasswordComponent {
-  forgetForm = this.fb.group({
+  forgetForm = this.formBuilder.group({
     username: ['', Validators.required],
   });
 
   submitted = false;
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private authenticationService:AuthenticateService, 
     private router:Router,
     private route$:ActivatedRoute,

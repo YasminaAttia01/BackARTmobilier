@@ -10,15 +10,28 @@ import { CommandeService } from 'src/app/services/commande.service';
 export class PanierComponent implements OnInit {
   articles?: any;
 
-  constructor(
-    private commandeService: CommandeService) { }
+  constructor(private commandeService: CommandeService) { }
 
   ngOnInit(): void {
-    this.articles = this.commandeService.getCartData()
+    this.commandeService.cartItems$.subscribe(e => {
+      this.articles = e;
+    });
+  }
+
+  onCancel() {
+    this.commandeService.cancelCartData()
   }
 
   onDelete(article: IArticle) {
-    alert('ok')
+    this.commandeService.removeItem(article)
+  }
+
+  addQt(article: IArticle){
+    this.commandeService.addQtItem(article)
+  }
+
+  minusQt(article: IArticle){
+    this.commandeService.minusQtItem(article)
   }
 
 }

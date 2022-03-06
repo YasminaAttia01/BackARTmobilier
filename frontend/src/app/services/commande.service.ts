@@ -42,10 +42,6 @@ export class CommandeService {
   
   }
 
-  removeItem(){
-    
-  }
-
   setCartData(data: any){
     localStorage.setItem('cart', JSON.stringify(data));
   }
@@ -54,5 +50,60 @@ export class CommandeService {
     return JSON.parse(localStorage.getItem('cart') as string)
   }
 
+  cancelCartData(){
+    const ls = this.getCartData();
+
+    if (ls) {
+      localStorage.removeItem('cart');
+      this.cartItems$.next(this.getCartData());
+    }
+  }
+
+  removeItem(article: IArticle){
+    const ls = this.getCartData();
+    let exist: any;
+
+    if (ls) {
+      exist = ls.find((item: IArticle) => {
+        return item._id === article._id
+      });
+    }
+    if (exist) {
+      exist.qt++;
+      this.setCartData(ls)
+    }
+  }
+
+  addQtItem(article: IArticle){
+    const ls = this.getCartData();
+    let exist: any;
+
+    if (ls) {
+      exist = ls.find((item: IArticle) => {
+        return item._id === article._id
+      });
+    }
+    if (exist) {
+      exist.qt++;
+      this.setCartData(ls)
+      this.cartItems$.next(this.getCartData());
+    }
+  }
+
+  minusQtItem(article: IArticle){
+    const ls = this.getCartData();
+    let exist: any;
+
+    if (ls) {
+      exist = ls.find((item: IArticle) => {
+        return item._id === article._id
+      });
+    }
+    if (exist) {
+      exist.qt--;
+      this.setCartData(ls)
+      this.cartItems$.next(this.getCartData());
+    }
+  }
 
 }
