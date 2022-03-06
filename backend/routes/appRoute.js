@@ -7,11 +7,11 @@ const auth = require("../middleware/auth")();
 /* Afficher tous les articles */
 router.get("/articles", articleController.getAllArticles);
 
+/* Afficher un article */
+router.get("/article/:id", articleController.getArticleById);
+
 /* Afficher le total des articles */
 router.get("/article/total", auth.authenticate(), articleController.countArticles);
-
-/* Afficher un article */
-router.get("/article/:id", auth.authenticate(), articleController.getArticleById);
 
 /* Ajouter un article */
 router.post("/article/ajouter", auth.authenticate(), articleController.addArticle);
@@ -27,11 +27,11 @@ router.delete("/article/supprimer/:id", auth.authenticate(), articleController.d
 /* Afficher toutes les categories */
 router.get("/categories", categorieController.getAllCategories);
 
+/* Afficher une categorie */
+router.get("/categorie/:id", categorieController.getCategorieById);
+
 /* Afficher le total des categories */
 router.get("/categorie/total", auth.authenticate(), categorieController.countCategories);
-
-/* Afficher une categorie */
-router.get("/categorie/:id", auth.authenticate(), categorieController.getCategorieById);
 
 /* Ajouter une categorie */
 router.post("/categorie/ajouter", auth.authenticate(), categorieController.addCategorie);

@@ -7,7 +7,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { ArticlesComponent } from './pages/articles/articles.component';
 import { AproposComponent } from './pages/apropos/apropos.component';
-import { CommandesComponent } from './pages/commandes/commandes.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PasswordComponent } from './pages/password/password.component';
 import { PanierComponent } from './pages/panier/panier.component';
@@ -40,7 +39,6 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     ArticlesComponent,
     AproposComponent,
-    CommandesComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
