@@ -71,18 +71,25 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div *ngIf="articles.length == 0"  >
+                    <div class="d-flex justify-content-center align-items-center">
+                        <img src="assets/img/cart.png" width="380px" height="300px" alt="">
+                    </div>
+                    <h1 class="font-30 font-bold primary-text text-center mt-3">Votre panier est vide</h1>
+                </div>
                 
                 <div class="d-flex align-items-center justify-content-end">
                     <span class="font-roboto font-20 me-2 fw-bold text-dark">Total :</span>
                     <span class="font-roboto font-24 me-2 fw-bold primary-text">
-                        200000 FCFA
+                        {{ totalCart }} FCFA
                     </span>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button type="button" class="hj-primary-btn border-0 me-4 mt-4">
+                    <button [disabled]="articles.length == 0" type="button" class="hj-primary-btn border-0 me-4 mt-4">
                         Confirmer
                     </button>
-                    <button (click)="onCancel()" type="button" class="hj-primary-btn bg-danger border-0 mt-4">
+                    <button [disabled]="articles.length == 0" (click)="onCancel()" type="button" class="hj-primary-btn bg-danger border-0 mt-4">
                         Annuler
                     </button>
                 </div>

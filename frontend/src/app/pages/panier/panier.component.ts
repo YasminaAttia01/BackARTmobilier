@@ -9,12 +9,17 @@ import { CommandeService } from 'src/app/services/commande.service';
 })
 export class PanierComponent implements OnInit {
   articles?: any;
+  totalCart?: any;
 
   constructor(private commandeService: CommandeService) { }
 
   ngOnInit(): void {
     this.commandeService.cartItems$.subscribe(e => {
       this.articles = e;
+      this.totalCart = 0;
+      e.map((item: any) => {
+        return this.totalCart += item.qt * item.prix
+      });
     });
   }
 

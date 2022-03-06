@@ -10,6 +10,7 @@ import { ArticleService } from '../../services/article.service';
 })
 export class ProductsComponent implements OnInit {
   articles?: any;
+  loading = true;
 
   constructor(
     private articleService: ArticleService,
@@ -19,9 +20,11 @@ export class ProductsComponent implements OnInit {
     this.articleService.getAllArticles().subscribe(data => {
       if(data.status==="error"){
         this.articles=[];
+        this.loading=false
       }
       else{
         this.articles=data.message.articles
+        this.loading=false
       }
     })
   }

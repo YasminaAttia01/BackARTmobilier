@@ -18,7 +18,6 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.commandeService.cartItems$.subscribe(e => {
-      console.log(e)
       this.itemCart = e.length;
     });
   }

@@ -60,18 +60,12 @@ export class CommandeService {
   }
 
   removeItem(article: IArticle){
-    const ls = this.getCartData();
-    let exist: any;
+    const ls = this.getCartData().filter((item: any) => {
+      return item._id != article._id
+    });
 
-    if (ls) {
-      exist = ls.find((item: IArticle) => {
-        return item._id === article._id
-      });
-    }
-    if (exist) {
-      exist.qt++;
-      this.setCartData(ls)
-    }
+    this.setCartData(ls)
+    this.cartItems$.next(this.getCartData());
   }
 
   addQtItem(article: IArticle){
@@ -99,7 +93,7 @@ export class CommandeService {
         return item._id === article._id
       });
     }
-    if (exist) {
+    if (exist && exist.qt > 1) {
       exist.qt--;
       this.setCartData(ls)
       this.cartItems$.next(this.getCartData());
