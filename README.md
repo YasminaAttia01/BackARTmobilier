@@ -4,16 +4,18 @@
 
 ![Capture d’écran 2022-01-02 110712](https://user-images.githubusercontent.com/31158553/147873026-cb0a0ad1-9ded-4249-bdb4-9d8dce8a84ef.png)
 
-Pages utilisateurs:
+Pages visiteurs:
 * Accueil
 * Articles
 * Apropos
+* Panier
 
 Pages administrateurs:
 * Tableau de bord
-* Vente
+* Utilisateur
 * Article
 * Categorie
+* Commande
 
 ## Setup
 
