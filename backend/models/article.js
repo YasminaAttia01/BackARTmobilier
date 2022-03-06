@@ -17,6 +17,10 @@ var articleSchema = new mongoose.Schema({
     type:Number,
     required: [true, 'Le prix de l\'article est obligatoire'],
   },
+  qt: {
+    type: Number,
+    default: 1
+  },
   categorie: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categorie',

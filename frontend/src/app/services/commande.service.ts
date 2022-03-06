@@ -1,6 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { IArticle } from '../models/article.model';
+import { AuthenticateService } from './authenticate.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +11,11 @@ import { IArticle } from '../models/article.model';
 export class CommandeService {
   placeholder: Array<IArticle>=[];
   cartItems$: BehaviorSubject<IArticle[]>;
+  reqHeader$?: HttpHeaders
   
-  constructor() { 
+  constructor(
+    private http:HttpClient,
+    private authenticationService: AuthenticateService) { 
     this.cartItems$ = new BehaviorSubject<IArticle[]>([]);
 
     const ls = this.getCartData();
@@ -99,5 +105,28 @@ export class CommandeService {
       this.cartItems$.next(this.getCartData());
     }
   }
+
+
+  addCommande():Observable<any>{
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.token) {
+      this.reqHeader$ =  new HttpHeaders({ 
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('currentUser') as string).token
+      });
+    }
+    this.reqHeader$ =  new HttpHeaders({ 
+      'Content-Type': 'application/json',
+    });
+    var totalCart = 0;
+    const data = {
+      total: this.getCartData().map((item: any) => {
+        return totalCart += item.qt * item.prix
+      }),
+      user: currentUser,
+      commandeDetail: this.getCartData()
+    }
+    return this.http.post(`${environment.BASE_API_URI}/commande/ajouter`, data, { headers: this.reqHeader$ }) as Observable<any>
+}
 
 }
