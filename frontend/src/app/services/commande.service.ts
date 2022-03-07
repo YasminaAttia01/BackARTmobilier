@@ -62,9 +62,15 @@ export class CommandeService {
   }
 
   cancelCartData(){
-      localStorage.removeItem('cart');
-      this.cartItems$.next([]);
-      this.notifyService.showSuccess("Vos achats sont annules", "Success")
+      const ls = this.getCartData();
+
+      if (ls) {
+        localStorage.removeItem('cart');
+        this.cartItems$.next([]);
+        this.notifyService.showSuccess("Vos achats sont annules", "Success")
+      }
+
+      window.location.reload();  
   }
 
   removeItem(article: IArticle){
