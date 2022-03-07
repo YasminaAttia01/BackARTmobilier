@@ -40,6 +40,7 @@ const getCommandeById = async (req, res) => {
 };
 
 const addCommande = async (req, res) => {
+  req.body.total = parseInt(req.body.total)
   const newCommande = new Commande(req.body);
   try {
       const commande = await newCommande.save();

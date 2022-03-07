@@ -27,7 +27,7 @@ export class PanierComponent implements OnInit {
     this.commandeService.cartItems$.subscribe(e => {
       this.articles = e;
       this.totalCart = 0;
-      e.map((item: any) => {
+      this.articles.map((item: any) => {
         return this.totalCart += item.qt * item.prix
       });
     });
@@ -50,7 +50,6 @@ export class PanierComponent implements OnInit {
   }
 
   onConfirm() {
-
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.token) {
       this.loadingConfirm = true;
@@ -64,6 +63,7 @@ export class PanierComponent implements OnInit {
             this.commandeService.cancelCartData()
           }
           else if (res.status==="Error"){
+            console.log(res)
             this.notifyService.showError("Message erreur", "Erreur")
             this.loadingConfirm = false
           }
