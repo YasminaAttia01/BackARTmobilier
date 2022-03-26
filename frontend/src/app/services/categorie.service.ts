@@ -31,6 +31,10 @@ export class CategorieService {
   getAllCategories():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/categories`, { headers: this.reqHeader() }) as Observable<any>
   }
+
+  getCategorie(_id:string):Observable<any>{
+    return this.http.get(`${environment.BASE_API_URI}/categorie/${_id}`, { headers: this.reqHeader() }) as Observable<any>
+  }
   
   countCategories():Observable<any>{
     return this.http.get(`${environment.BASE_API_URI}/categorie/total`, { headers: this.reqHeader() }) as Observable<any>

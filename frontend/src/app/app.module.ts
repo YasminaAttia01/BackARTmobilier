@@ -31,6 +31,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './services/jwt.interceptors';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AdminArticleEditComponent } from './backoffice/admin-article-edit/admin-article-edit.component';
+import { AdminCategorieEditComponent } from './backoffice/admin-categorie-edit/admin-categorie-edit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     AdminUserAddComponent,
     AdminArticleAddComponent,
+    AdminArticleEditComponent,
     AdminCategorieAddComponent,
+    AdminCategorieEditComponent,
     ProductsComponent,
     ArticleComponent,
   ],
@@ -61,6 +66,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
       timeOut: 300000,

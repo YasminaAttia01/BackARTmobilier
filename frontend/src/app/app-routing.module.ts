@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminArticleAddComponent } from './backoffice/admin-article-add/admin-article-add.component';
+import { AdminArticleEditComponent } from './backoffice/admin-article-edit/admin-article-edit.component';
 import { AdminArticleComponent } from './backoffice/admin-article/admin-article.component';
 import { AdminCategorieAddComponent } from './backoffice/admin-categorie-add/admin-categorie-add.component';
+import { AdminCategorieEditComponent } from './backoffice/admin-categorie-edit/admin-categorie-edit.component';
 import { AdminCategorieComponent } from './backoffice/admin-categorie/admin-categorie.component';
 import { AdminCommandeComponent } from './backoffice/admin-commande/admin-commande.component';
 import { AdminDashboardComponent } from './backoffice/admin-dashboard/admin-dashboard.component';
@@ -87,6 +89,11 @@ const routes: Routes = [
     canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
+    path: "admin/article/modifier/:_id",
+    component: AdminArticleEditComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
+  },
+  {
     path: "admin/categories",
     component: AdminCategorieComponent,
     canActivate: [UserNotAuthGuard, IsAdminGuard]
@@ -94,6 +101,11 @@ const routes: Routes = [
   {
     path: "admin/categorie/ajouter",
     component: AdminCategorieAddComponent,
+    canActivate: [UserNotAuthGuard, IsAdminGuard]
+  },
+  {
+    path: "admin/categorie/modifier",
+    component: AdminCategorieEditComponent,
     canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {

@@ -8,7 +8,7 @@
         <div class="col-md-6">
           <nav class="float-md-end mt-lg-0 mt-2" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" routerLink="">Adminnistration</a></li>
+              <li class="breadcrumb-item"><a class="text-decoration-none link-hover dark-text font-14 font-poppins" [routerLink]="'/admin/dashboard'">Adminnistration</a></li>
             </ol>
           </nav>
         </div>
@@ -29,8 +29,8 @@
                     <div class="col-12">
                         <div class="row gy-4">
                             <div class="col-md-6">
-                                <button routerLink="../user/ajouter" class="hj-primary-btn border-0">
-                                    Ajouter un administrateur
+                                <button [routerLink]="'/user/ajouter'" class="hj-primary-btn border-0">
+                                    Ajouter un /administrateur
                                 </button>
                             </div>
                             <div class="col-md-6">
