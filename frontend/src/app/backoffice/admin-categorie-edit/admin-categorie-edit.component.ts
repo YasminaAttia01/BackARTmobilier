@@ -29,7 +29,7 @@ export class AdminCategorieEditComponent implements OnInit {
 
     this.categorieService.getCategorie(_id).subscribe(data => {
       if(data.status!="error"){
-        this.categorieForm.controls['name'].setValue(data.message.articles.name)
+        this.categorieForm.controls['name'].setValue(data.message.categorie.name)
       }
     })
   }

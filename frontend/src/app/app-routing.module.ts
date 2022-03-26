@@ -104,7 +104,7 @@ const routes: Routes = [
     canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
   {
-    path: "admin/categorie/modifier",
+    path: "admin/categorie/modifier/:_id",
     component: AdminCategorieEditComponent,
     canActivate: [UserNotAuthGuard, IsAdminGuard]
   },
